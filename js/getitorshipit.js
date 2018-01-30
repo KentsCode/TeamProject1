@@ -3,20 +3,24 @@ $(document).ready(function() {
 	$("#submit-button").click(function() {
 		localStorage.setItem("lastSearch", $("#search-input").val().trim());
 		localStorage.setItem("zipCode", $("#zip-code-input").val().trim());
-		var recentSearches1 = localStorage.getItem("searchHistory");
-		//JSON.parse("[" + recentSearches);
-		//localStorage.setItem("searchHistory", $("#search-input").val().trim());
-		//console.log(recentSearches);
-		//console.log(localStorage.getItem("lastSearch"));
-		//console.log(localStorage.getItem("zipCode"));
+		var recentSearches = localStorage.getItem("searchHistory");
+
 	});
 	//console.log(localStorage.getItem("searchHistory"));
-	var recentSearches2 = localStorage.getItem("searchHistory");
-	//console.log(recentSearches2);
+	//var recentSearches2 = localStorage.getItem("searchHistory");
+	//console.log(localStorage.getItem("searchHistory"));
+
+	var stringFromStorage = localStorage.getItem("searchHistory");
+			console.log(stringFromStorage);
+			JSON.parse(stringFromStorage);
+			console.log(stringFromStorage);
 
 
-	//console.log(localStorage.getItem("lastSearch"));
-	//console.log(localStorage.getItem("zipCode"));
+
+
+
+	//above is stuff for recent searches
+
 	var productSearchTerm = localStorage.getItem("lastSearch");
 	var zipCodeOrigin = localStorage.getItem("zipCode")
 	//console.log(productSearchTerm);
@@ -30,7 +34,7 @@ $(document).ready(function() {
 	      url: walmartStoreFinderRequestURL,
 	      method: "GET"
 	    }).done(function(response) {
-	    	console.log(response);
+	    	//console.log(response);
 	    	walmartAddress = response[0].streetAddress
 	    	walmartZipCode = response[0].zip
 	    	//console.log(walmartAddress);
@@ -42,13 +46,13 @@ $(document).ready(function() {
 
 	function mapToWalmart () {
 		var googleMapsURL = "https://maps.googleapis.com/maps/api/directions/json?origin=" + zipCodeOrigin + "&destination=" + walmartAddress + " " + walmartZipCode + "&key=AIzaSyD5j3jVOFvSfD2RIaWiWlw3inkLuWfs9P0";
-		console.log(googleMapsURL);
+	//	console.log(googleMapsURL);
 		$.ajax({
 	      url: googleMapsURL,
 	      method: "GET"
 	    }).done(function(response) {
 	    	//console.log(googleMapsURL);
-	    	console.log(response);
+	    	//console.log(response);
 	    	$("#walmart-time-distance").empty();
 	    	$("#walmart-time-distance").append(response.routes[0].legs[0].distance.text);
 	    	$("#walmart-time-distance").append("     ");
@@ -115,7 +119,7 @@ $(document).ready(function() {
 	      url: queryURLebay,
 	      method: "GET"
 	    }).done(function(response) {
-	    console.log(response);
+	    //console.log(response);
 	    var responseParsed = JSON.parse(response);
 	   // console.log(responseParsed.Item[0].ConvertedCurrentPrice.Value);
 	  // console.log(responseParsed)
