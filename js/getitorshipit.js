@@ -10,9 +10,9 @@ $(document).ready(function() {
 		//console.log(localStorage.getItem("lastSearch"));
 		//console.log(localStorage.getItem("zipCode"));
 	});
-	console.log(localStorage.getItem("searchHistory"));
+	//console.log(localStorage.getItem("searchHistory"));
 	var recentSearches2 = localStorage.getItem("searchHistory");
-	console.log(recentSearches2);
+	//console.log(recentSearches2);
 
 
 	//console.log(localStorage.getItem("lastSearch"));
@@ -30,7 +30,7 @@ $(document).ready(function() {
 	      url: walmartStoreFinderRequestURL,
 	      method: "GET"
 	    }).done(function(response) {
-	    	//console.log(response);
+	    	console.log(response);
 	    	walmartAddress = response[0].streetAddress
 	    	walmartZipCode = response[0].zip
 	    	//console.log(walmartAddress);
@@ -48,28 +48,17 @@ $(document).ready(function() {
 	      method: "GET"
 	    }).done(function(response) {
 	    	//console.log(googleMapsURL);
-	    	//console.log(response);
+	    	console.log(response);
 	    	$("#walmart-time-distance").empty();
 	    	$("#walmart-time-distance").append(response.routes[0].legs[0].distance.text);
 	    	$("#walmart-time-distance").append("     ");
 	    	$("#walmart-time-distance").append(response.routes[0].legs[0].duration.text);
+	    	var googleAddress = walmartAddress.replace(/\s/g, '+')
+	    	$("iframe").attr("src", "https://www.google.com/maps/embed/v1/place?key=AIzaSyAV_KCTwkCagC8o0aj4mz-9QPJCNeQ9Okw&q=" + googleAddress + "+" + walmartZipCode);
 
 		});
 	}
 
-	/*function initMap() {
-
-		var googleMapsURL2 = "https://maps.googleapis.com/maps/api/js?key=AIzaSyD5j3jVOFvSfD2RIaWiWlw3inkLuWfs9P0&callback=initMap"
-        var uluru = walmartAddress + " " + walmartZipCode;
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: uluru
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-      }*/
 	
 	
 	function walmartProductGetter () {
