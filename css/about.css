@@ -1,3 +1,83 @@
+.form-group {
+	margin-left: 200px;
+	margin-right: 200px;
+}
+
+.container {
+	max-width: 100%;
+}
+
+label {
+	font-family: 'Raleway', sans-serif;
+	font-weight: bold;
+}
+
+h1 {
+	font-family: 'Raleway', sans-serif;
+	color: #248f8f;
+}
+
+
+.h1 {
+	color: lightgrey;
+    font-style: oblique;
+    font-weight: lighter;
+    font-size: 36px;
+    text-align: center;
+}
+
+.electronics, .home , .pets, .video-games, .fitness {
+
+	font-family: 'Raleway', sans-serif;
+	color: #248f8f;
+	size: 14px;
+	letter-spacing: 1px;
+	font-weight: bold;
+
+	}
+
+
+
+.category-container {
+    margin: auto;
+    width: 80%;
+    padding: 10px;
+    margin-top: 100px;
+}
+img {
+        margin-left: 30px;
+        vertical-align: center;
+}
+.firstimg {
+    margin-left: 70px;
+}
+
+
+p {
+font-family: 'Raleway', sans-serif;
+text-align: center;
+
+}
+
+.electronics {
+	margin-left: 250px;
+}
+
+.home {
+	margin-left: 170px;
+
+}
+
+.fitness {
+	margin-left: 120px;
+}
+
+.pets {
+	margin-left: 180px;
+}
+.video-games {
+	margin-left: 160px;
+}
 * {
 	position: relative;
 	-moz-box-sizing: border-box;
@@ -13,13 +93,36 @@ body {
 }
 
 body {
-	background: white
-	;
+	background: white;
 	color: black;
 }
 
+
+
+#ebay {
+	background-color: blue;
+	width: 45%;
+	float: right;
+	padding-left: 10%;
+	display: inline-block;
+	text-align: center;
+}
+
+#walmart {
+	background-color:red;
+	width: 45%;
+	padding-left: 10%;
+	display: inline-block;
+	text-align: center;
+	
+}
+
+/*hr {width:150px;height:2px;background-color:#000000;}*/
+
+
 .btn-primary {
 	background-color: #2eb8b8;
+	margin-left: 200px;
 
 }
 
@@ -31,7 +134,7 @@ body {
 	font-family: 'Lato', Arial, sans-serif;
 }
 
-.component > h2 {
+/*.component > h2 {
 	position: absolute;
 	overflow: hidden;
 	width: 100%;
@@ -43,11 +146,12 @@ body {
 	font-size: 12em;
 	opacity: 0.1;
 	cursor: default;
-}
+}*/
 
 h2 {
 	color: #2eb8b8;
 	size: 67px;
+	font-family: 'Raleway', sans-serif;
 }
 /*
 .cn-button {
@@ -82,7 +186,7 @@ h2 {
     top: 100%;
     left: 50%;
     z-index: 11;
-    margin-top: 15.75em;
+    margin-top: 20.00em;
     margin-left: -2.25em;
     padding-top: 0em;
     width: 4.5em;
@@ -196,7 +300,7 @@ h2 {
 	text-align: center;
 	text-decoration: none;
 	font-size: 1.2em;
-	line-height: 2;
+	line-height: 1;
 	-webkit-transform: skew(-60deg) rotate(-75deg) scale(1);
 	-moz-transform: skew(-60deg) rotate(-75deg) scale(1);
 	-ms-transform: skew(-60deg) rotate(-75deg) scale(1);
@@ -204,6 +308,9 @@ h2 {
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 	pointer-events: auto;
+	font-family: 'Raleway', sans-serif;
+	font-style: lighter;
+;
 }
 
 .csstransforms .cn-wrapper li a span {
@@ -363,3 +470,4 @@ h2 {
 		line-height: 3em;
 	}
 }
+
