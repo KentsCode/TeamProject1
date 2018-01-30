@@ -54,7 +54,7 @@ $(document).ready(function() {
 	    	$("#walmart-time-distance").append("     ");
 	    	$("#walmart-time-distance").append(response.routes[0].legs[0].duration.text);
 	    	var googleAddress = walmartAddress.replace(/\s/g, '+')
-	    	$("iframe").attr("src", "https://www.google.com/maps/embed/v1/place?key=AIzaSyAV_KCTwkCagC8o0aj4mz-9QPJCNeQ9Okw&q=" + googleAddress + "+" + walmartZipCode);
+	    	$("iframe").attr("src", "https://www.google.com/maps/embed/v1/directions?key=AIzaSyAV_KCTwkCagC8o0aj4mz-9QPJCNeQ9Okw&origin=" + zipCodeOrigin + "&destination=" + googleAddress + "+" + walmartZipCode);
 
 		});
 	}
@@ -115,7 +115,7 @@ $(document).ready(function() {
 	      url: queryURLebay,
 	      method: "GET"
 	    }).done(function(response) {
-	   // console.log(response);
+	    console.log(response);
 	    var responseParsed = JSON.parse(response);
 	   // console.log(responseParsed.Item[0].ConvertedCurrentPrice.Value);
 	  // console.log(responseParsed)
@@ -127,9 +127,9 @@ $(document).ready(function() {
 	    			productBeingAdded.attr("src", responseParsed.Item[i].GalleryURL);
 	    			productBeingAdded.attr("class", "ebay-image")
 	    			productBeingAdded.attr("id", "ebayProduct"+i);
-	    			$("#ebay-products").append("$"+responseParsed.Item[i].ConvertedCurrentPrice.Value);
-	    			$("#ebay-products").append("Shipping Cost: $"+responseParsed.Item[i].ShippingCostSummary.ListedShippingServiceCost.Value);	
 	    			$("#ebay-products").append(productBeingAdded);
+	    			$("#ebay-products").append("<p class=ebay-price>$"+responseParsed.Item[i].ConvertedCurrentPrice.Value + "</p>");
+	    			$("#ebay-products").append("<p class=ebay-price>" + "Shipping Cost: $"+responseParsed.Item[i].ShippingCostSummary.ListedShippingServiceCost.Value+ "</p>");	
 	    			$("#"+idFinder).wrap(aTag);
 	    	}
 		});
@@ -175,20 +175,17 @@ $(document).ready(function() {
 /*	$("#newButton").click(function amazonProductGetter () {
 	 	console.log(this);
 		console.log($("#buttonTextInput").val());
-
 	 //gets the Walmart Products
 	    
 	   	//var APIKeyAmazon = "s7yjqttef8f3nbazyhmnc6zv";
     	var searchTermAmazon = this.id; //need to update this! it should be equal to the value of the button that gets pushed
     	var queryURLAmazon = "http://webservices.amazon.com/onca/xml?Service=AWSECommerceService&Operation=ItemSearch&SubscriptionId=AKIAJ4RCQZ7YL7NXFULA&AssociateTag=GetItOrShipIt&SearchIndex=All&Keywords=" + $("#buttonTextInput").val().trim() + "&ResponseGroup=Images,ItemAttributes,Offers";
     	console.log(queryURLAmazon);
-
 	    $.ajax({
 	      url: queryURLAmazon,
 	      method: "GET"
 	    }).done(function(response) {
 	    	console.log(response);
-
 	   	/* $("#Div1").empty();
 	    	for (var i = 0; i < 9.5; i++) {	
 	    			var productBeingAdded = $("<img>");

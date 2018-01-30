@@ -46,7 +46,7 @@ p {
 	text-align: center;
 }
 
-#walmart {
+#walmart, #ebay {
 	width: 45%;
 	padding-left: 10%;
 	display: inline-block;
@@ -54,11 +54,11 @@ p {
 	
 }
 
-.walmart-image {
-	width: 300px;
+.walmart-image, .ebay-image {
+	width: 250px;
 }
 
-.walmart-price {
+.walmart-price, .ebay-price {
 font-family: 'Raleway', sans-serif;
 font-weight: bold;
 font-size: 22px;
