@@ -7,34 +7,28 @@ $(document).ready(function() {
 		console.log(localStorage.getItem("lastSearch"));
 		console.log(localStorage.getItem("zipCode"));
 
-
-		//below builds array to be set to string if nothing in storage
-		/*var checkLocalStorage = localStorage.getItem("searchHistory");
-		if (checkLocalStorage === null) {
-			var stringBuilder = "[\"" + $("#search-input").val().trim() + "\", \" \"]";
-			JSON.stringify(stringBuilder);
-			localStorage.setItem("searchHistory", stringBuilder); 
-			console.log(localStorage.getItem("searchHistory"));
+		var itemSubmitted = $("#search-input").val().trim();
+		var recentSearches = localStorage.getItem("searchHistory");
+		if (recentSearches == null) {
+			var newObject = {};
+			var newArray = [];
+			newArray.push(itemSubmitted);
+			newObject.searches = newArray;
+			console.log(newObject);
+			var stringified = JSON.stringify(newObject);
+			console.log(stringified);
+			localStorage.setItem("searchHistory", stringified);
 		} else {
-			var stringFromStorage = localStorage.getItem("searchHistory");
-			console.log(stringFromStorage);
-			var parsedString = JSON.parse(stringFromStorage);
-			var itemAdded = parsedString//.push(", " + $("#search-input").val().trim());
-			console.log(itemAdded);
-			JSON.stringify(itemAdded);
-			localStorage.setItem("searchHistory", itemAdded);
-			console.log(itemAdded + " else fired");
-
-		}*/
+			console.log("this string fired");
+			var fromStorage = localStorage.getItem("searchHistory");
+			console.log(fromStorage);
+			var returnedObject = JSON.parse(fromStorage);
+			console.log(returnedObject);
+			returnedObject.searches.push(itemSubmitted);
+			console.log(returnedObject);
+			var setBacktoStorage = JSON.stringify(returnedObject);
+			localStorage.setItem("searchHistory", setBacktoStorage);
+		}
 	});
-
-	console.log(localStorage.getItem("lastSearch"));
-	console.log(localStorage.getItem("searchHistory"));
-
-
-
-	var productSearchTerm = localStorage.getItem("lastSearch");
-	console.log(productSearchTerm);
-
 
 });
