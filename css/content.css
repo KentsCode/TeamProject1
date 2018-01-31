@@ -1,3 +1,14 @@
+.form-group {
+	width: 50%;
+	margin-left: 400px; ;
+}
+
+.form-control{
+	font-family: 'Raleway', sans-serif;
+	margin-top: 10px;
+	padding: 5px;
+}
+
 h1 {
 	font-family: 'Raleway', sans-serif;
 	font-weight: bold;
@@ -5,6 +16,19 @@ h1 {
 
 }
 
+.container {
+	position: relative;
+}
+
+.ebay-shipping-price {
+font-family: 'Raleway', sans-serif;
+font-weight: bold;
+font-size: 22px;
+border-bottom: 1px solid grey;
+margin-bottom: 30px;
+padding-bottom:20px;
+
+}
 
 .h1 {
 	color: lightgrey;
@@ -16,8 +40,8 @@ h1 {
 }
 
 * {
-	position: relative;
-	-moz-box-sizing: border-box;
+/*	position: relative;
+*/	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
@@ -44,13 +68,17 @@ p {
 	padding-left: 10%;
 	display: inline-block;
 	text-align: center;
+	margin-top: 150px;
+
 }
 
-#walmart, #ebay {
+#walmart {
 	width: 45%;
 	padding-left: 10%;
 	display: inline-block;
 	text-align: center;
+	margin-top: 150px;
+	margin-bottom: 35px;
 	
 }
 
@@ -58,7 +86,7 @@ p {
 	width: 250px;
 }
 
-.walmart-price, .ebay-price {
+.walmart-price,  {
 font-family: 'Raleway', sans-serif;
 font-weight: bold;
 font-size: 22px;
@@ -66,9 +94,21 @@ border-bottom: 1px solid grey;
 margin-bottom: 30px;
 padding-bottom:20px;
 
+}
 
+.ebay-price {
+font-family: 'Raleway', sans-serif;
+font-weight: bold;
+font-size: 22px;
+margin-bottom: 30px;
+padding-bottom:20px;
 
+}
 
+#walmart-time-distance {
+	font-family: 'Raleway', sans-serif;
+	font-weight: bold;
+	font-size: 30px;
 }
 
 /*hr {width:150px;height:2px;background-color:#000000;}*/
@@ -76,6 +116,9 @@ padding-bottom:20px;
 
 .btn-primary {
 	background-color: #2eb8b8;
+	margin-top: 15px;
+	padding: 7px;
+	color: white;
 
 }
 
@@ -138,7 +181,7 @@ h2 {
     top: 100%;
     left: 50%;
     z-index: 11;
-    margin-top: 26.00em;
+    margin-top: 9em;
     margin-left: -2.25em;
     padding-top: 0em;
     width: 4.5em;
@@ -161,11 +204,11 @@ h2 {
 }*/
 
 .csstransforms .cn-wrapper {
-	position: absolute;
+
 	top: 100%;
 	left: 50%;
 	z-index: 10;
-	margin-top: -13em;
+	margin-top: 1em;
 	margin-left: -13.5em;
 	width: 27em;
 	height: 27em;
@@ -252,7 +295,7 @@ h2 {
 	text-align: center;
 	text-decoration: none;
 	font-size: 1.2em;
-	line-height: 2;
+	line-height: 1;
 	-webkit-transform: skew(-60deg) rotate(-75deg) scale(1);
 	-moz-transform: skew(-60deg) rotate(-75deg) scale(1);
 	-ms-transform: skew(-60deg) rotate(-75deg) scale(1);
@@ -260,6 +303,8 @@ h2 {
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 	pointer-events: auto;
+	font-family: 'Raleway', sans-serif;
+	font-style: lighter;
 }
 
 .csstransforms .cn-wrapper li a span {
