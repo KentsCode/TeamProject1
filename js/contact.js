@@ -14,26 +14,28 @@ $(document).ready(function(){
   var dB = firebase.database();
 
   //Initial values
-  var name;
-  var email;
-  var comment; 
+  var name = "";
+  var email = "";
+  var comment = ""; 
 
 
-  $("contact-submit-button").on("click", function(event){
+  $("#contact-submit-button").on("click", function(event){
       console.log("contact-submit-button");
 
     event.preventDefault();
  
-  var name = $("#name-input").val().trim();
-  var email = $("#email-input").val().trim();
-  var comment = $("#comment-input").val.trim();
+    name = $("#name-input").val().trim();
+    email = $("#email-input").val().trim();
+    comment = $("#comment-input").val().trim();
 
+// console.log(firebase.database.ServerValue.TIMESTAMP);
   var newEntry = {
 
     userName: name,
     userEmail: email,
     userComment: comment,
-    dataAdded: firebase.database.ServerValue.TIMESTAMP
+    dataAdded: firebase.database.ServerValue.TIMESTAMP,
+    dateCreated: new Date(Date.now()).toString(),
 
   };
 
@@ -55,24 +57,29 @@ $(document).ready(function(){
  
     alert("Your Comment Has Been Added");
 
+
+  });
+
+
+  dB.ref().on("child_added", function(childSnapshot){
+
+      console.log(childSnapshot.val());
+
+      var name = childSnapshot.val().userName;
+      var email = childSnapshot.val().userEmail;
+      var comment = childSnapshot.val().userComment;
+
+
+
+      //Log User Information 
+
+      console.log(name);
+      console.log(email);
+      console.log(comment);
+
+
+
+
+  });
+
 });
-
-
-
-dB.ref().on("child_added", function(childSnapshot){
-
-    console.log(childSnapshot.val());
-
-    var name = childSnapshot.val().userName;
-    var email = childSnapshot.val().userEmail;
-    var comment = childSnapshot.val().userComment;
-
-})
-
-    //Log User Information 
-
-    console.log(name);
-    console.log(email);
-    console.log(comment);
-
-})
