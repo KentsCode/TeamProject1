@@ -1,3 +1,6 @@
+iframe {
+	margin-bottom: 30px;
+}
 .form-group {
 	width: 50%;
 	margin-left: 400px; ;
@@ -84,9 +87,10 @@ p {
 
 .walmart-image, .ebay-image {
 	width: 250px;
+	margin-bottom: 10px;
 }
 
-.walmart-price,  {
+.walmart-price  {
 font-family: 'Raleway', sans-serif;
 font-weight: bold;
 font-size: 22px;
@@ -100,9 +104,16 @@ padding-bottom:20px;
 font-family: 'Raleway', sans-serif;
 font-weight: bold;
 font-size: 22px;
-margin-bottom: 30px;
-padding-bottom:20px;
+margin-bottom: 10px;
 
+
+}
+
+.ebay-shipping-price {
+font-family: 'Raleway', sans-serif;
+font-size: 18px;
+margin-bottom: 10px;
+color: grey;
 }
 
 #walmart-time-distance {
