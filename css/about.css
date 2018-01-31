@@ -7,6 +7,11 @@
 	max-width: 100%;
 }
 
+.about-container {
+	width: 80%;
+	
+}
+
 label {
 	font-family: 'Raleway', sans-serif;
 	font-weight: bold;
@@ -15,6 +20,7 @@ label {
 h1 {
 	font-family: 'Raleway', sans-serif;
 	color: #248f8f;
+
 }
 
 
@@ -44,10 +50,13 @@ h1 {
     padding: 10px;
     margin-top: 100px;
 }
+
 img {
         margin-left: 30px;
         vertical-align: center;
 }
+
+
 .firstimg {
     margin-left: 70px;
 }
@@ -55,7 +64,13 @@ img {
 
 p {
 font-family: 'Raleway', sans-serif;
-text-align: center;
+text-align: left;
+font-size: 19px;
+margin-left: 35%;
+margin-top: auto;
+border: 3px ridge #2eb8b8;
+padding: 10px 28px;
+
 
 }
 
@@ -186,7 +201,7 @@ h2 {
     top: 100%;
     left: 50%;
     z-index: 11;
-    margin-top: 20.00em;
+    margin-top: 22.00em;
     margin-left: -2.25em;
     padding-top: 0em;
     width: 4.5em;
