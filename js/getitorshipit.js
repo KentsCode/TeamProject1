@@ -2,32 +2,43 @@ $(document).ready(function() {
 
 	$("#submit-button").click(function() {
 		localStorage.setItem("lastSearch", $("#search-input").val().trim());
-		localStorage.setItem("zipCode", $("#zip-code-input").val().trim());
+		console.log(localStorage.getItem("lastSearch"));
+		console.log(localStorage.getItem("zipCode"));
+
+		var itemSubmitted = $("#search-input").val().trim();
 		var recentSearches = localStorage.getItem("searchHistory");
+		if (recentSearches == null) {
+			var newObject = {};
+			var newArray = [];
+			newArray.push(itemSubmitted);
+			newObject.searches = newArray;
+			console.log(newObject);
+			var stringified = JSON.stringify(newObject);
+			console.log(stringified);
+			localStorage.setItem("searchHistory", stringified);
+		} else {
+			console.log("this string fired");
+			var fromStorage = localStorage.getItem("searchHistory");
+			console.log(fromStorage);
+			var returnedObject = JSON.parse(fromStorage);
+			console.log(returnedObject);
+			returnedObject.searches.push(itemSubmitted);
+			console.log(returnedObject);
+			var setBacktoStorage = JSON.stringify(returnedObject);
+			localStorage.setItem("searchHistory", setBacktoStorage);
 
+		}
 	});
-	//console.log(localStorage.getItem("searchHistory"));
-	//var recentSearches2 = localStorage.getItem("searchHistory");
-	//console.log(localStorage.getItem("searchHistory"));
-
-	var stringFromStorage = localStorage.getItem("searchHistory");
-			console.log(stringFromStorage);
-			JSON.parse(stringFromStorage);
-			console.log(stringFromStorage);
-
-
-
-
-
 	//above is stuff for recent searches
 
 	var productSearchTerm = localStorage.getItem("lastSearch");
 	var zipCodeOrigin = localStorage.getItem("zipCode")
-	//console.log(productSearchTerm);
-	//console.log(zipCodeOrigin);
+	console.log(productSearchTerm);
+	console.log(zipCodeOrigin);
 	var walmartAddress;
 	var walmartZipCode;
 	
+
 	function walmartStoreFinder () {
 		var walmartStoreFinderRequestURL = "http://api.walmartlabs.com/v1/stores?apiKey=s7yjqttef8f3nbazyhmnc6zv&zip=" + zipCodeOrigin + "&format=json"
 		 $.ajax({
@@ -43,6 +54,7 @@ $(document).ready(function() {
 		});
 	}
 	walmartStoreFinder();
+
 
 	function mapToWalmart () {
 		var googleMapsURL = "https://maps.googleapis.com/maps/api/directions/json?origin=" + zipCodeOrigin + "&destination=" + walmartAddress + " " + walmartZipCode + "&key=AIzaSyD5j3jVOFvSfD2RIaWiWlw3inkLuWfs9P0";
@@ -63,8 +75,7 @@ $(document).ready(function() {
 		});
 	}
 
-	
-	
+
 	function walmartProductGetter () {
 
 	 //gets the Walmart Products
@@ -79,31 +90,24 @@ $(document).ready(function() {
 	    }).done(function(response) {
 	    	//console.log(response);
 
-	   	$("#walmart-products").empty();
+		   	$("#walmart-products").empty();
 	    	for (var i = 0; i < 9.5; i++) {	
-	    			var productBeingAdded = $("<img>");
-	    			var aTag = $("<a/>").attr("href", response.items[i].productUrl);
-	    			//var divTag = $("<div/>").attr("class", "walmart-div");
-	    			var idFinder = "walmartProduct" + i;
-	    			var priceBeingAdded = response.items[i].salePrice;
-	    			productBeingAdded.attr("src", response.items[i].imageEntities[0].mediumImage);
-	    			productBeingAdded.attr("class", "walmart-image")
-	    			productBeingAdded.attr("id", "walmartProduct"+i);
-	    			$("#walmart-products").append(productBeingAdded);
-	    			aTag.attr("id", "#aTag"+idFinder);
-	    			$("#"+idFinder).wrap(aTag);
-	    			$("#walmart-products").append("<p class='walmart-price' >$"+response.items[i].salePrice+"</p>");
-	    			//$("#aTag"+idFinder).wrap(divTag);
-	    			//console.log("aTag"+idFinder);
-
-
+    			var productBeingAdded = $("<img>");
+    			var aTag = $("<a/>").attr("href", response.items[i].productUrl);
+    			//var divTag = $("<div/>").attr("class", "walmart-div");
+    			var idFinder = "walmartProduct" + i;
+    			var priceBeingAdded = response.items[i].salePrice;
+    			productBeingAdded.attr("src", response.items[i].imageEntities[0].mediumImage);
+    			productBeingAdded.attr("class", "walmart-image")
+    			productBeingAdded.attr("id", "walmartProduct"+i);
+    			$("#walmart-products").append(productBeingAdded);
+    			aTag.attr("id", "#aTag"+idFinder);
+    			$("#"+idFinder).wrap(aTag);
+    			$("#walmart-products").append("<p class='walmart-price' >$"+response.items[i].salePrice+"</p>");
 	    	}
-
 	    });
-
-	};
+	}
 	walmartProductGetter();
-
 
 
 	function eBayProductGetter () {
@@ -120,24 +124,24 @@ $(document).ready(function() {
 	      method: "GET"
 	    }).done(function(response) {
 	    //console.log(response);
-	    var responseParsed = JSON.parse(response);
-	   // console.log(responseParsed.Item[0].ConvertedCurrentPrice.Value);
-	  // console.log(responseParsed)
-		$("#ebay-products").empty();
+		    var responseParsed = JSON.parse(response);
+		    // console.log(responseParsed.Item[0].ConvertedCurrentPrice.Value);
+		    // console.log(responseParsed)
+			$("#ebay-products").empty();
 	    	for (var i = 0; i < 3; i++) {	
-	    			var productBeingAdded = $("<img>");
-	    			var aTag = $("<a/>").attr("href", responseParsed.Item[i].ViewItemURLForNaturalSearch);
-	    			var idFinder = "ebayProduct" + i;
-	    			productBeingAdded.attr("src", responseParsed.Item[i].GalleryURL);
-	    			productBeingAdded.attr("class", "ebay-image")
-	    			productBeingAdded.attr("id", "ebayProduct"+i);
-	    			$("#ebay-products").append(productBeingAdded);
-	    			$("#ebay-products").append("<p class=ebay-price>$"+responseParsed.Item[i].ConvertedCurrentPrice.Value + "</p>");
-	    			$("#ebay-products").append("<p class=ebay-price>" + "Shipping Cost: $"+responseParsed.Item[i].ShippingCostSummary.ListedShippingServiceCost.Value+ "</p>");	
-	    			$("#"+idFinder).wrap(aTag);
+    			var productBeingAdded = $("<img>");
+    			var aTag = $("<a/>").attr("href", responseParsed.Item[i].ViewItemURLForNaturalSearch);
+    			var idFinder = "ebayProduct" + i;
+    			productBeingAdded.attr("src", responseParsed.Item[i].GalleryURL);
+    			productBeingAdded.attr("class", "ebay-image")
+    			productBeingAdded.attr("id", "ebayProduct"+i);
+    			$("#ebay-products").append(productBeingAdded);
+    			$("#ebay-products").append("<p class='ebay-price'>$"+responseParsed.Item[i].ConvertedCurrentPrice.Value + "</p>");
+    			$("#ebay-products").append("<p class='ebay-shipping-price'>" + "Shipping Cost: $"+responseParsed.Item[i].ShippingCostSummary.ListedShippingServiceCost.Value+ "</p>");	
+    			$("#"+idFinder).wrap(aTag);
 	    	}
 		});
-	};
+	}
 	eBayProductGetter();
 	 
 
@@ -153,52 +157,25 @@ $(document).ready(function() {
 	      url: queryURLebay,
 	      method: "GET"
 	    }).done(function(response) {
-	    //console.log(response);
-	    var responseParsed = JSON.parse(response);
-	   // console.log(responseParsed.Item[0].ConvertedCurrentPrice.Value);
-	  // console.log(responseParsed)
-	
-	    	for (var i = 0; i < 3; i++) {	
-	    			var productBeingAdded = $("<img>");
-	    			var aTag = $("<a/>").attr("href", responseParsed.Item[i].ViewItemURLForNaturalSearch);
-	    			var idFinder = "ebayProduct" + i;
-	    			productBeingAdded.attr("src", responseParsed.Item[i].GalleryURL);
-	    			productBeingAdded.attr("class", "ebay-image")
-	    			productBeingAdded.attr("id", "ebayProduct"+i);
-	    			$("#ebay-products").append("$"+responseParsed.Item[i].ConvertedCurrentPrice.Value);
-	    			$("#ebay-products").append("Shipping Cost: $"+responseParsed.Item[i].ShippingCostSummary.ListedShippingServiceCost.Value);	
-	    			$("#ebay-products").append(productBeingAdded);
-	    			$("#"+idFinder).wrap(aTag);
+		    //console.log(response);
+		    var responseParsed = JSON.parse(response);
+		    // console.log(responseParsed.Item[0].ConvertedCurrentPrice.Value);
+		  	// console.log(responseParsed)
+		
+		    for (var i = 0; i < 3; i++) {	
+				var productBeingAdded = $("<img>");
+				var aTag = $("<a/>").attr("href", responseParsed.Item[i].ViewItemURLForNaturalSearch);
+				var idFinder = "ebayProduct" + i;
+				productBeingAdded.attr("src", responseParsed.Item[i].GalleryURL);
+				productBeingAdded.attr("class", "ebay-image")
+				productBeingAdded.attr("id", "ebayProduct"+i);
+				$("#ebay-products").append("$"+responseParsed.Item[i].ConvertedCurrentPrice.Value);
+				$("#ebay-products").append("Shipping Cost: $"+responseParsed.Item[i].ShippingCostSummary.ListedShippingServiceCost.Value);	
+				$("#ebay-products").append(productBeingAdded);
+				$("#"+idFinder).wrap(aTag);
 	    	}
 		});
-	};
+	}
 	eBayProductGetter2();
-
-
-
-/*	$("#newButton").click(function amazonProductGetter () {
-	 	console.log(this);
-		console.log($("#buttonTextInput").val());
-	 //gets the Walmart Products
-	    
-	   	//var APIKeyAmazon = "s7yjqttef8f3nbazyhmnc6zv";
-    	var searchTermAmazon = this.id; //need to update this! it should be equal to the value of the button that gets pushed
-    	var queryURLAmazon = "http://webservices.amazon.com/onca/xml?Service=AWSECommerceService&Operation=ItemSearch&SubscriptionId=AKIAJ4RCQZ7YL7NXFULA&AssociateTag=GetItOrShipIt&SearchIndex=All&Keywords=" + $("#buttonTextInput").val().trim() + "&ResponseGroup=Images,ItemAttributes,Offers";
-    	console.log(queryURLAmazon);
-	    $.ajax({
-	      url: queryURLAmazon,
-	      method: "GET"
-	    }).done(function(response) {
-	    	console.log(response);
-	   	/* $("#Div1").empty();
-	    	for (var i = 0; i < 9.5; i++) {	
-	    			var productBeingAdded = $("<img>");
-	    			productBeingAdded.attr("src", response.items[i].imageEntities[0].mediumImage);
-	    			$("#Div1").append("$"+response.items[i].salePrice);	
-	    			$("#Div1").append(productBeingAdded);
-	    	} */
-
-	   //});
-	//}); 
 
 });

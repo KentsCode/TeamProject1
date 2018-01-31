@@ -3,6 +3,11 @@
 	margin-right: 200px;
 }
 
+.form-control {
+	width: 70%;
+}
+
+
 .container {
 	max-width: 100%;
 }
@@ -152,7 +157,6 @@ body {
 
 h2 {
 	color: #2eb8b8;
-	size: 67px;
 	font-family: 'Raleway', sans-serif;
 }
 /*
