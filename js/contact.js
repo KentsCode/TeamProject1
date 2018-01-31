@@ -14,9 +14,9 @@ $(document).ready(function(){
   var dB = firebase.database();
 
   //Initial values
-  var name;
-  var email;
-  var comment; 
+  var name = "";
+  var email = "";
+  var comment =""; 
 
 
   $("contact-submit-button").on("click", function(event){
@@ -28,24 +28,29 @@ $(document).ready(function(){
   var email = $("#email-input").val().trim();
   var comment = $("#comment-input").val.trim();
 
-  var newEntry = {
+ dB.ref().push({
 
     userName: name,
     userEmail: email,
     userComment: comment,
     dataAdded: firebase.database.ServerValue.TIMESTAMP
 
-  };
+  });
+//Log User Information 
 
-  console.log(newEntry);
+console.log(userName);
+console.log(userEmail);
+console.log(userComment);
 
-  dB.ref().push(newEntry);
+  // console.log(newEntry);
+
+  // dB.ref().push(newEntry);
 
   //Log newEntry data to console
 
-  console.log(newEntry.userName);
-  console.log(newEntry.userEmail);
-  console.log(newEntry.userComment);
+  // console.log(newEntry.userName);
+  // console.log(newEntry.userEmail);
+  // console.log(newEntry.userComment);
 
     //Set Input to empty after user presses submit and child is added
 
@@ -53,8 +58,7 @@ $(document).ready(function(){
     $("#email-input").val("");
     $("#comment-input").val("");
  
-    alert("Your Comment Has Been Added");
-
+    
 });
 
 
@@ -62,17 +66,23 @@ $(document).ready(function(){
 dB.ref().on("child_added", function(childSnapshot){
 
     console.log(childSnapshot.val());
+    console.log(childSnapshot.val().name);
+    console.log(childSnapshot.val().email);
+    console.log(childSnapshot.val().comment);
 
     var name = childSnapshot.val().userName;
     var email = childSnapshot.val().userEmail;
     var comment = childSnapshot.val().userComment;
 
-})
 
-    //Log User Information 
+    
 
-    console.log(name);
-    console.log(email);
-    console.log(comment);
+},function(errorObject) {
+  console.log("Errors handled: " + errorObject.code);
 
-})
+  event.preventDefault();
+});
+
+  
+
+});
