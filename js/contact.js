@@ -16,11 +16,7 @@ $(document).ready(function(){
   //Initial values
   var name = "";
   var email = "";
-<<<<<<< HEAD
-  var comment = ""; 
-=======
   var comment =""; 
->>>>>>> 014594939a5a88b6839746a4eb9b77cdba7f901c
 
 
   $("#contact-submit-button").on("click", function(event){
@@ -32,12 +28,7 @@ $(document).ready(function(){
     email = $("#email-input").val().trim();
     comment = $("#comment-input").val().trim();
 
-<<<<<<< HEAD
-// console.log(firebase.database.ServerValue.TIMESTAMP);
-  var newEntry = {
-=======
  dB.ref().push({
->>>>>>> 014594939a5a88b6839746a4eb9b77cdba7f901c
 
     userName: name,
     userEmail: email,
@@ -68,56 +59,36 @@ console.log(userComment);
     $("#email-input").val("");
     $("#comment-input").val("");
  
-<<<<<<< HEAD
-    alert("Your Comment Has Been Added");
-
-=======
     
 });
->>>>>>> 014594939a5a88b6839746a4eb9b77cdba7f901c
 
   });
 
 
   dB.ref().on("child_added", function(childSnapshot){
-
-<<<<<<< HEAD
-      console.log(childSnapshot.val());
-=======
-    console.log(childSnapshot.val());
-    console.log(childSnapshot.val().name);
-    console.log(childSnapshot.val().email);
-    console.log(childSnapshot.val().comment);
->>>>>>> 014594939a5a88b6839746a4eb9b77cdba7f901c
-
-      var name = childSnapshot.val().userName;
-      var email = childSnapshot.val().userEmail;
-      var comment = childSnapshot.val().userComment;
-
-
-<<<<<<< HEAD
-
-      //Log User Information 
-
-      console.log(name);
-      console.log(email);
-      console.log(comment);
-
-
-
-
-  });
-
-=======
     
-
-},function(errorObject) {
-  console.log("Errors handled: " + errorObject.code);
-
-  event.preventDefault();
-});
-
-  
-
->>>>>>> 014594939a5a88b6839746a4eb9b77cdba7f901c
-});
+      console.log(childSnapshot.val());
+      console.log(childSnapshot.val().name);
+      console.log(childSnapshot.val().email);
+      console.log(childSnapshot.val().comment);
+    
+        var name = childSnapshot.val().userName;
+        var email = childSnapshot.val().userEmail;
+        var comment = childSnapshot.val().userComment;
+    
+    
+        //Log User Information 
+    
+        console.log(name);
+        console.log(email);
+        console.log(comment);
+    
+    
+      }, function(errorObject) {
+    console.log("Errors handled: " + errorObject.code);
+    
+    event.preventDefault();
+    
+    });
+    
+    
