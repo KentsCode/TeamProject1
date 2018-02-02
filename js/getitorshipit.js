@@ -109,15 +109,19 @@ $(document).ready(function() {
 	    	}
 	    	addImage = response.items[0].imageEntities[0].mediumImage;
 	    	console.log(addImage);
-	    });
-
 	    	//adds image url to recent storage for recent searches page.
 			var fromStorage = localStorage.getItem("searchHistory");
 			//console.log(fromStorage);
 			var returnedObject = JSON.parse(fromStorage);
 			console.log(returnedObject);
 			returnedObject.images.push(addImage);
+			console.log(returnedObject);
+			var toSendToStorage = JSON.stringify(returnedObject);
+			localStorage.setItem("searchHistory", toSendToStorage);
 			console.log(localStorage.getItem("searchHistory"));
+	    });
+
+
 	}
 
 	walmartProductGetter();
