@@ -10,20 +10,22 @@ $(document).ready(function() {
 		if (recentSearches == null) {
 			var newObject = {};
 			var newArray = [];
+			var newArray2 = [];
 			newArray.push(itemSubmitted);
 			newObject.searches = newArray;
+			newObject.images = newArray2;
 			console.log(newObject);
 			var stringified = JSON.stringify(newObject);
-			console.log(stringified);
+			//console.log(stringified);
 			localStorage.setItem("searchHistory", stringified);
 		} else {
-			console.log("this string fired");
+			//console.log("this string fired");
 			var fromStorage = localStorage.getItem("searchHistory");
-			console.log(fromStorage);
+			//console.log(fromStorage);
 			var returnedObject = JSON.parse(fromStorage);
 			console.log(returnedObject);
 			returnedObject.searches.push(itemSubmitted);
-			console.log(returnedObject);
+			//console.log(returnedObject);
 			var setBacktoStorage = JSON.stringify(returnedObject);
 			localStorage.setItem("searchHistory", setBacktoStorage);
 
@@ -37,7 +39,7 @@ $(document).ready(function() {
 	console.log(zipCodeOrigin);
 	var walmartAddress;
 	var walmartZipCode;
-	
+	var addImage;
 
 	function walmartStoreFinder () {
 		var walmartStoreFinderRequestURL = "http://api.walmartlabs.com/v1/stores?apiKey=s7yjqttef8f3nbazyhmnc6zv&zip=" + zipCodeOrigin + "&format=json"
@@ -103,10 +105,21 @@ $(document).ready(function() {
     			$("#walmart-products").append(productBeingAdded);
     			aTag.attr("id", "#aTag"+idFinder);
     			$("#"+idFinder).wrap(aTag);
-    			$("#walmart-products").append("<p class='walmart-price' >$"+response.items[i].salePrice+"</p>");
+    			$("#walmart-products").append("<p class='walmart-price' >$"+response.items[i].salePrice+"</p>");  			
 	    	}
+	    	addImage = response.items[0].imageEntities[0].mediumImage;
+	    	console.log(addImage);
 	    });
+
+	    	//adds image url to recent storage for recent searches page.
+			var fromStorage = localStorage.getItem("searchHistory");
+			//console.log(fromStorage);
+			var returnedObject = JSON.parse(fromStorage);
+			console.log(returnedObject);
+			returnedObject.images.push(addImage);
+			console.log(localStorage.getItem("searchHistory"));
 	}
+
 	walmartProductGetter();
 
 
