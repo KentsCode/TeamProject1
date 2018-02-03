@@ -5,6 +5,8 @@ $(document).ready(function() {
 		console.log($(this).attr("id"));
 		localStorage.setItem("lastSearch", $(this).attr("id"));
 		console.log(localStorage.getItem("lastSearch"));
+
+		
 	});
 
 });
