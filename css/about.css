@@ -66,7 +66,7 @@ p {
 font-family: 'Raleway', sans-serif;
 text-align: left;
 font-size: 19px;
-margin-left: 35%;
+margin-left: 28%;
 margin-top: auto;
 border: 3px ridge #2eb8b8;
 padding: 10px 28px;
@@ -149,51 +149,12 @@ body {
 	font-family: 'Lato', Arial, sans-serif;
 }
 
-/*.component > h2 {
-	position: absolute;
-	overflow: hidden;
-	width: 100%;
-	text-align: center;
-	text-transform: uppercase;
-	white-space: nowrap;
-	font-weight: 300;
-	font-style: italic;
-	font-size: 12em;
-	opacity: 0.1;
-	cursor: default;
-}*/
 
 h2 {
 	color: #2eb8b8;
 	size: 67px;
 	font-family: 'Raleway', sans-serif;
 }
-/*
-.cn-button {
-	position: absolute;
-	top: 100%;
-	left: 50%;
-	z-index: 11;
-	margin-top: -2.25em;
-	margin-left: -2.25em;
-	padding-top: 0em;
-	width: 4.5em;
-	height: 4.5em;
-	border: none;
-	border-radius: 50%;
-	background: none;
-	background-color: #fff;
-	color: #2eb8b8;
-	text-align: center;
-	font-weight: 700;
-	font-size: 1.5em;
-	text-transform: uppercase;
-	cursor: pointer;
-	-webkit-backface-visibility: hidden;
-}
-*/
-
-
 
 
 .cn-button {
@@ -201,7 +162,7 @@ h2 {
     top: 100%;
     left: 50%;
     z-index: 11;
-    margin-top: 22.00em;
+    margin-top: -02.5em;
     margin-left: -2.25em;
     padding-top: 0em;
     width: 4.5em;
@@ -209,7 +170,7 @@ h2 {
     border: none;
     border-radius: 50%;
     background: none;
-    background-color:#ebfafa;
+    background-color: white;
     color: #2eb8b8;
     text-align: center;
     font-weight: 700;
