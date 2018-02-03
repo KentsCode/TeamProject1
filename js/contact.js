@@ -39,9 +39,9 @@ $(document).ready(function(){
   });
 //Log User Information 
 
-console.log(userName);
-console.log(userEmail);
-console.log(userComment);
+//console.log(userName);
+//console.log(userEmail);
+//console.log(userComment);
 
   // console.log(newEntry);
 
@@ -67,10 +67,10 @@ console.log(userComment);
 
   dB.ref().on("child_added", function(childSnapshot){
     
-      console.log(childSnapshot.val());
-      console.log(childSnapshot.val().name);
-      console.log(childSnapshot.val().email);
-      console.log(childSnapshot.val().comment);
+    //  console.log(childSnapshot.val());
+      //console.log(childSnapshot.val().name);
+      //console.log(childSnapshot.val().email);
+      //console.log(childSnapshot.val().comment);
     
         var name = childSnapshot.val().userName;
         var email = childSnapshot.val().userEmail;
@@ -79,13 +79,13 @@ console.log(userComment);
     
         //Log User Information 
     
-        console.log(name);
-        console.log(email);
-        console.log(comment);
+        //console.log(name);
+        //console.log(email);
+        //console.log(comment);
     
     
       }, function(errorObject) {
-    console.log("Errors handled: " + errorObject.code);
+    //console.log("Errors handled: " + errorObject.code);
     
     event.preventDefault();
     
