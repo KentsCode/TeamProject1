@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    console.log("hello");
+   // console.log("hello");
 
   var config = {
     apiKey: "AIzaSyAScDZcsCxAimR2jD51orruawByayOzHfc",
@@ -60,12 +60,12 @@ $(document).ready(function(){
     $("#comment-input").val("");
  
     
+    });
+
 });
 
-  });
 
-
-  dB.ref().on("child_added", function(childSnapshot){
+  /*dB.ref().on("child_added", function(childSnapshot){
     
     //  console.log(childSnapshot.val());
       //console.log(childSnapshot.val().name);
@@ -90,5 +90,4 @@ $(document).ready(function(){
     event.preventDefault();
     
     });
-    
-    
+    */
