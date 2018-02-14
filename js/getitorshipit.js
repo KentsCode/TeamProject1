@@ -109,7 +109,7 @@ $(document).ready(function() {
 	    	//console.log(response);
 
 		   	$("#walmart-products").empty();
-	    	for (var i = 0; i < 9.5; i++) {	
+	    	for (var i = 0; i < 6.1; i++) {	
     			var productBeingAdded = $("<img>");
     			var aTag = $("<a/>").attr("href", response.items[i].productUrl);
     			//var divTag = $("<div/>").attr("class", "walmart-div");

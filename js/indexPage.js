@@ -45,7 +45,7 @@ var zipCode = "";
 			var setBacktoStorage = JSON.stringify(returnedObject);
 			localStorage.setItem("searchHistory", setBacktoStorage);
 		}
-		 //event.preventDefault();
+		  event.preventDefault();
 
   email = $("#email-input").val().trim();
   zipCode = $("#zip-code-input").val().trim();
@@ -58,8 +58,8 @@ var zipCode = "";
 
   });
 
-  //console.log(email);
-  //console.log(zipCode);
+   console.log(email);
+   console.log(zipCode);
 
   $("#email-input").val("");
   $("#zip-code-input").val("");
@@ -68,16 +68,16 @@ var zipCode = "";
 
     dB.ref().on("child_added", function(childSnapshot){
     
-       //console.log(childSnapshot.val());
-       // console.log(childSnapshot.val().email);
-       // console.log(childSnapshot.val().zipCode);
+        console.log(childSnapshot.val());
+        console.log(childSnapshot.val().email);
+        console.log(childSnapshot.val().zipCode);
     
        
         var email = childSnapshot.val().email;
         var zipCode = childSnapshot.val().zipCode; 
     
     },function(errorObject) {
-      //console.log("Errors handled: " + errorObject.code);
+      console.log("Errors handled: " + errorObject.code);
     
       event.preventDefault();
     });
