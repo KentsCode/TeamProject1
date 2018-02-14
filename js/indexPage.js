@@ -45,7 +45,7 @@ var zipCode = "";
 			var setBacktoStorage = JSON.stringify(returnedObject);
 			localStorage.setItem("searchHistory", setBacktoStorage);
 		}
-		  event.preventDefault();
+		  //event.preventDefault();
 
   email = $("#email-input").val().trim();
   zipCode = $("#zip-code-input").val().trim();
