@@ -42,6 +42,11 @@ $(document).ready(function() {
 	var addImage;
 
 	function walmartStoreFinder () {
+		jQuery.ajaxPrefilter(function(options) {
+	        if (options.crossDomain && jQuery.support.cors) {
+	            options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+	        }
+    	});
 		var walmartStoreFinderRequestURL = "http://api.walmartlabs.com/v1/stores?apiKey=s7yjqttef8f3nbazyhmnc6zv&zip=" + zipCodeOrigin + "&format=json"
 		 $.ajax({
 	      url: walmartStoreFinderRequestURL,
@@ -59,6 +64,11 @@ $(document).ready(function() {
 
 
 	function mapToWalmart () {
+		jQuery.ajaxPrefilter(function(options) {
+	        if (options.crossDomain && jQuery.support.cors) {
+	            options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+	        }
+    	});
 		var googleMapsURL = "https://maps.googleapis.com/maps/api/directions/json?origin=" + zipCodeOrigin + "&destination=" + walmartAddress + " " + walmartZipCode + "&key=AIzaSyD5j3jVOFvSfD2RIaWiWlw3inkLuWfs9P0";
 	//	console.log(googleMapsURL);
 		$.ajax({
@@ -81,6 +91,12 @@ $(document).ready(function() {
 	function walmartProductGetter () {
 
 	 //gets the Walmart Products
+
+	 	jQuery.ajaxPrefilter(function(options) {
+	        if (options.crossDomain && jQuery.support.cors) {
+	            options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+	        }
+    	});
 	    
 	   	var APIKeyWalmart = "s7yjqttef8f3nbazyhmnc6zv";
     	var queryURLWalmart = "http://api.walmartlabs.com/v1/search?apiKey=" + APIKeyWalmart + "&query=" + productSearchTerm //$("#buttonTextInput").val().trim();
@@ -128,6 +144,12 @@ $(document).ready(function() {
 
 
 	function eBayProductGetter () {
+
+		jQuery.ajaxPrefilter(function(options) {
+	        if (options.crossDomain && jQuery.support.cors) {
+	            options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+	        }
+    	});
 		
 		var searchTermEbayNoSpaces = productSearchTerm.replace(/\s/g, '+');
 		var searchTermEbayNoSpacesNew = searchTermEbayNoSpaces + "+new";
@@ -163,6 +185,12 @@ $(document).ready(function() {
 	 
 
 	function eBayProductGetter2 () {
+
+		jQuery.ajaxPrefilter(function(options) {
+	        if (options.crossDomain && jQuery.support.cors) {
+	            options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+	        }
+    	});
 		
 		var searchTermEbayNoSpaces = productSearchTerm.replace(/\s/g, '+');
 
