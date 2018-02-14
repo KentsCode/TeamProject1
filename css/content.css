@@ -3,7 +3,8 @@ iframe {
 }
 .form-group {
 	width: 50%;
-	margin-left: 400px; ;
+	margin-left: 25%; 
+	margin-right: 25%;
 }
 
 .form-control{
