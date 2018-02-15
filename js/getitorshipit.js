@@ -130,11 +130,14 @@ $(document).ready(function() {
 			//console.log(fromStorage);
 			var returnedObject = JSON.parse(fromStorage);
 			console.log(returnedObject);
-			returnedObject.images.push(addImage);
-			console.log(returnedObject);
-			var toSendToStorage = JSON.stringify(returnedObject);
-			localStorage.setItem("searchHistory", toSendToStorage);
-			console.log(localStorage.getItem("searchHistory"));
+			if (returnedObject.searches.length > returnedObject.images.length) {
+				console.log("adding image");
+				returnedObject.images.push(addImage);
+				console.log(returnedObject);
+				var toSendToStorage = JSON.stringify(returnedObject);
+				localStorage.setItem("searchHistory", toSendToStorage);
+				console.log(localStorage.getItem("searchHistory"));
+			}	
 	    });
 
 

@@ -5,6 +5,7 @@ $(document).ready(function() {
 	var returnedObject = JSON.parse(fromStorage);
 	// urls are equal to returnedObject.images[i];
 	console.log(returnedObject.images);
+	console.log(returnedObject);
 
 
 	for (var i = 0; i < returnedObject.images.length; i++) {
