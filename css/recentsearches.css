@@ -78,7 +78,7 @@ p {
 
 img {
     border: 3px solid black;
-	margin-left: 20%;
+	/* margin-left: 20%; */
 	margin-top: 2%;
 	margin-bottom: 5%;
 	width: 40%;
@@ -428,6 +428,10 @@ h2 {
 		.component > h2 {
 			font-size: 7em;
 		}
+
+		/* img {
+			margin-right: 10%;
+		} */
 	
 	}
 	
@@ -454,6 +458,7 @@ h2 {
 		.component > h2 {
 			font-size: 4.5em;
 		}
+
 	
 	}
 	
@@ -577,6 +582,11 @@ h2 {
 		.component > h2{
 			font-size: 2em;
 		}
+
+		/* .imgSize {
+			vertical-align: center;
+			padding-right: -20px;
+		} */
 	}
 	
 	
@@ -590,6 +600,8 @@ h2 {
 		.component > h2{
 			font-size: 2.5em;
 		}
+
+	
 	}
 	
 	@media screen and (max-width: 320px) {
@@ -597,10 +609,12 @@ h2 {
 			font-size: 2em;
 		}
 		
-		img {
+		/* img {
 			vertical-align: center;
-			margin-right: 50%;
-		}
+			margin-right: 20%;
+			border: 3px solid black;
+		} */
+
 	
 	  }
 
