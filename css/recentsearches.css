@@ -47,7 +47,7 @@ h1 {
 }
 
 .main-content {
-	
+
 }
 
 
@@ -83,7 +83,14 @@ img {
 	margin-bottom: 5%;
 	width: 40%;
 	height: 40%;
+	float: left;
 }
+
+/* .imageSize {
+	margin-right: 10%;
+	width: 76%;
+	margin-left: 10%;
+} */
 
 #ebay {
 	background-color: blue;

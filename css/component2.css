@@ -546,7 +546,7 @@ h2 {
 @media only screen and (min-width:420px) and (max-width: 450px) and (orientation: portrait) {
 	
 		.component > h2{
-			font-size: 2.5em;
+			font-size: 2em;
 		}
 	
 	}
@@ -573,16 +573,14 @@ h2 {
 	}
 
 	.component > h2{
-		font-size: 2.5em;
+		font-size: 2em;
 	}
 }
 
 @media screen and (max-width: 320px) {
 	.component > h2{
-		font-size: 2.2em;
+		font-size: 2em;
 	}
 
-	 {
 
-	}
   }
