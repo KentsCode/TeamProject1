@@ -13,17 +13,31 @@ h1 {
     text-align: center;
 }
 
-.electronics, .home , .pets, .video-games, .fitness {
+.text1 {
 
 	font-family: 'Raleway', sans-serif;
 	color: #248f8f;
 	size: 14px;
-	letter-spacing: 1px;
+	text-align: center;
 	font-weight: bold;
 
 	}
 
+.div1 {
+	vertical-align: top;
+    display: inline-block;
+    text-align: center;
+}
 
+.category {
+	width: 100px;
+    height: 100px;
+}
+
+.text1 {
+	display: block;
+	text-align: center;
+}
 
 .category-container {
     margin: auto;
@@ -42,28 +56,10 @@ img {
 
 p {
 display: inline-block;
-margin-left: 140px;
-}
-
-.electronics {
-	margin-left: 250px;
-}
-
-.home {
-	margin-left: 170px;
 
 }
 
-.fitness {
-	margin-left: 120px;
-}
 
-.pets {
-	margin-left: 180px;
-}
-.video-games {
-	margin-left: 160px;
-}
 * {
 	position: relative;
 	-moz-box-sizing: border-box;
