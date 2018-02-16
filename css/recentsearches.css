@@ -47,7 +47,7 @@ h1 {
 }
 
 .main-content {
-	
+
 }
 
 
@@ -80,6 +80,12 @@ img {
     border: 1px solid black;
     margin-left: 15%;
     max-width: 600px;
+}
+
+.imageSize {
+	margin-right: 10%;
+	width: 75%;
+	margin-left: 10%;
 }
 
 #ebay {

@@ -14,6 +14,7 @@ $(document).ready(function() {
 		var productBeingAdded = $("<img>");
 		aTag.attr("id", "atag"+i);
 		productBeingAdded.attr("src", returnedObject.images[i]);
+		productBeingAdded.attr("class", "imageSize");
 		aTag.attr("data-search", returnedObject.searches[i]); 
 		divBeingAdded.attr("class", "carousel-item");
 		aTag.attr("class", "linkTo");
