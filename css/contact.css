@@ -65,6 +65,7 @@ img {
 
 p {
 margin-left: 140px;
+margin-top: 40px;
 font-family: 'Raleway', sans-serif;
 text-align: center;
 
@@ -126,7 +127,7 @@ body {
 	padding-left: 10%;
 	display: inline-block;
 	text-align: center;
-	
+
 }
 
 /*hr {width:150px;height:2px;background-color:#000000;}*/
@@ -441,4 +442,3 @@ h2 {
 		line-height: 3em;
 	}
 }
-
